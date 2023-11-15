@@ -1,4 +1,4 @@
-baseURL = 'https://github.com/Andrewqie/myblog.git'
+baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Theologiae Viae'
 theme = 'paper'
