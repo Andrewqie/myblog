@@ -10,7 +10,5 @@ theme = 'paper'
     name = 'Andrew Qie'
     bio = '还在读书的中年男性，已婚，育有一儿一女'
 
-[author]
-    name = 'Andrew Qie'
-    authorEmail = 'qiejiabin@gmail.com'
-
+    # header social icons
+    instagram = 'andreasq86'           # instagram.com/andreasq86
