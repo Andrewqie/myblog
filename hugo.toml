@@ -6,9 +6,7 @@ theme = 'paper'
     # color style
     color = 'linen'
 
-    # header social icon
-    rss = true
-
     # home page profile
     name = 'Andrew Qie'
     bio = '还在读书的中年男性，已婚，育有一儿一女'
+    authorEmail = 'qiejiabin@gmail.com'
