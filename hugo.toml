@@ -5,10 +5,6 @@ theme = 'paper'
 [params]
     # color style
     color = 'linen'
-
-    # home page profile
-    name = 'Andrew Qie'
-    bio = '还在读书的中年男性，已婚，育有一儿一女'
-
+    
     # header social icons
     instagram = 'andreasq86'           # instagram.com/andreasq86
