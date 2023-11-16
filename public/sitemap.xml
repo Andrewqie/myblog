@@ -2,10 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://andrewqie.github.io/myblog/posts/</loc>
+    <lastmod>2023-11-15T00:13:47-05:00</lastmod>
+  </url><url>
+    <loc>https://andrewqie.github.io/myblog/posts/11-15-23/</loc>
+    <lastmod>2023-11-15T00:13:47-05:00</lastmod>
+  </url><url>
+    <loc>https://andrewqie.github.io/myblog/</loc>
+    <lastmod>2023-11-15T00:13:47-05:00</lastmod>
+  </url><url>
     <loc>https://andrewqie.github.io/myblog/categories/</loc>
   </url><url>
     <loc>https://andrewqie.github.io/myblog/tags/</loc>
-  </url><url>
-    <loc>https://andrewqie.github.io/myblog/</loc>
   </url>
 </urlset>

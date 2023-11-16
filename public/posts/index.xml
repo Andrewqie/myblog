@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Unfiltered Musings: Thoughts, Reflections, and Rants...</title>
-    <link>https://andrewqie.github.io/myblog/</link>
-    <description>Recent content on Unfiltered Musings: Thoughts, Reflections, and Rants...</description>
+    <title>Posts on Unfiltered Musings: Thoughts, Reflections, and Rants...</title>
+    <link>https://andrewqie.github.io/myblog/posts/</link>
+    <description>Recent content in Posts on Unfiltered Musings: Thoughts, Reflections, and Rants...</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 Nov 2023 00:13:47 -0500</lastBuildDate>
-    <atom:link href="https://andrewqie.github.io/myblog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://andrewqie.github.io/myblog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Theologiae Viae</title>
       <link>https://andrewqie.github.io/myblog/posts/11-15-23/</link>
