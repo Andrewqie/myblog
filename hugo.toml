@@ -2,3 +2,13 @@ baseURL = 'https://andrewqie.github.io/myblog/'
 languageCode = 'en-us'
 title = 'Unfiltered Musings: Thoughts, Reflections, and Rants...'
 theme = 'paper'
+[params]
+    # color style
+    color = 'linen'
+
+    # header social icon
+    rss = true
+
+    # home page profile
+    name = 'Andrew Qie'
+    bio = '还在读书的中年男性，已婚，育有一儿一女'
