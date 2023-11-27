@@ -5,13 +5,10 @@ theme = 'archie'
 
 paginate = 5 # articles per page
 
-[[params]]
+[params]
     
     # header social icons
     instagram = 'andreasq86'           # instagram.com/andreasq86
-
-[[params]]
-
     googleAnalytics = "G-FCB40SPT6E"
 
 [[menu.main]]
