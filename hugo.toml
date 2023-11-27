@@ -1,11 +1,26 @@
 baseURL = 'https://andrewqie.github.io/myblog/'
 languageCode = 'en-us'
 title = 'Unfiltered Musings: Thoughts, Reflections, and Rants...'
-theme = 'paper'
+theme = 'archie'
+
+paginate = 5 # articles per page
+
 [params]
-    # color style
-    color = 'linen'
     
     # header social icons
     instagram = 'andreasq86'           # instagram.com/andreasq86
+
+[params]
     googleAnalytics = "G-FCB40SPT6E"
+
+[[menu.main]]
+
+    name = "All posts"
+    url = "/posts"
+    weight = 2
+
+[[menu.main]]
+
+    name = "Tags"
+    url = "/tags"
+    weight = 4
