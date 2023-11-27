@@ -2,7 +2,7 @@ baseURL = 'https://andrewqie.github.io/myblog/'
 languageCode = 'en-us'
 title = 'Unfiltered Musings: Thoughts, Reflections, and Rants...'
 theme = 'archie'
-
+timeZone = 'America/New_York'
 paginate = 5 # articles per page
 
 [params]
