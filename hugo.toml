@@ -10,16 +10,13 @@ paginate = 5 # articles per page
     # header social icons
     instagram = 'andreasq86'           # instagram.com/andreasq86
 
-[params]
     googleAnalytics = "G-FCB40SPT6E"
 
-[[menu.main]]
+[menu.main]
 
     name = "All posts"
     url = "/posts"
     weight = 2
-
-[[menu.main]]
 
     name = "Tags"
     url = "/tags"
