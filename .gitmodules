@@ -2,3 +2,6 @@
 	path = themes/paper
 	url = https://github.com/nanxiaobei/hugo-paper
 
+[submodule "themes/archie"]
+	path = themes/archie
+	url = https://github.com/Andrewqie/archie
