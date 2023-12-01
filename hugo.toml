@@ -11,12 +11,6 @@ copyright = '© Andrewqie'
     subtitle = 'Thoughts, Reflections, and Rants...'
     googleAnalytics = "G-FCB40SPT6E"
 
-# social tags
-
-[[params.social]]
-name = "Github"
-icon = "github"
-url = "github.com/andrewqie/myblog"
 
 [[menu.main]]
     name = "All posts"
