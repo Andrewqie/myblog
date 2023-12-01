@@ -14,9 +14,9 @@ copyright = '© Andrewqie'
 # social tags
 
 [[params.social]]
-name = "Instagram"
-icon = "instagram"
-url = "https://www.instagram.com/andreasq86"
+name = "Github"
+icon = "github"
+url = "github.com/andrewqie/myblog"
 
 [[menu.main]]
     name = "All posts"
