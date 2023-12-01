@@ -10,7 +10,7 @@ copyright = '© Andrewqie'
     
     subtitle = 'Thoughts, Reflections, and Rants...'
     googleAnalytics = "G-FCB40SPT6E"
-
+    mode = "auto"
 
 [[menu.main]]
     name = "All posts"
