@@ -1,5 +1,5 @@
 {{ define "main" }}
-<main class="list archive">
+<main class="list archive panel">
   <h1 class="page-title">Archive</h1>
   <p class="archive-note">Posts older than a year are filed here automatically, newest first.</p>
   {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
