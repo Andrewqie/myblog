@@ -12,9 +12,7 @@ content:
     label: Posts
     type: collection
     path: content/posts
-    filename:
-      template: "{year}-{month}-{day}-{primary}.md"
-      field: create            # lets you type an English file name when creating a post
+    filename: "{year}-{month}-{day}-{hour}{minute}.md"   # automatic and unique, e.g. 2026-11-17-1933.md
     view:
       fields: [title, date, draft, tags]
       primary: title
@@ -33,7 +31,7 @@ content:
         type: date
         options:
           time: true
-          format: "yyyy-MM-dd'T'HH:mm:ssxxx"
+          format: "yyyy-MM-dd'T'HH:mm:ss"    # no UTC offset; Hugo applies the site time zone (America/New_York)
         description: Posts older than a year move to the Archive tab automatically.
       - name: draft
         label: Draft
