@@ -195,3 +195,13 @@ main { max-width: 41rem; margin: 0 auto; }
 }
 @media (max-width: 880px) { .panel { padding: 1.5rem 1.25rem 1.4rem; } }
 .nav-button { -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+
+/* ---------- Comments: a quiet button until the reader asks for them ---------- */
+.comments { margin-top: 2.2rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+.comments-btn {
+  font: inherit; font-size: .9rem; color: var(--muted); background: var(--chip);
+  border: 1px solid var(--line); border-radius: 999px; padding: .3rem 1.2rem; cursor: pointer;
+  transition: color .15s, border-color .15s;
+}
+.comments-btn:hover { color: var(--accent); border-color: var(--accent); }
+.comments-btn[hidden] { display: none; }
