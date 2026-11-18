@@ -1,0 +1,26 @@
+{{ define "main" }}
+<main>
+  <article class="post-full">
+    {{ if or .Params.title (ne .Type "page") }}
+    <header class="post-head">
+      <h1>{{ .Title }}</h1>
+      {{ if ne .Type "page" }}<div class="meta">{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span>{{ end }}</div>{{ end }}
+    </header>
+    {{ end }}
+    {{ with .Params.tldr }}<div class="tldr"><strong>tl;dr:</strong> {{ . }}</div>{{ end }}
+    <section class="body">{{ .Content }}</section>
+    {{ if and (ne .Type "page") .Params.tags }}
+    <p class="chips">{{ range .Params.tags }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>{{ end }}</p>
+    {{ end }}
+    {{ if ne .Type "page" }}
+    <script src="https://giscus.app/client.js"
+      data-repo="Andrewqie/myblog" data-repo-id="R_kgDOKt0wRQ"
+      data-category="General" data-category-id="DIC_kwDOKt0wRc4CbWgA"
+      data-mapping="pathname" data-strict="0" data-reactions-enabled="1"
+      data-emit-metadata="0" data-input-position="top"
+      data-theme="preferred_color_scheme" data-lang="en"
+      crossorigin="anonymous" async></script>
+    {{ end }}
+  </article>
+</main>
+{{ end }}

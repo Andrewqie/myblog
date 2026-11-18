@@ -1,0 +1,23 @@
+{{ define "main" }}
+<main class="list">
+  {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+  {{ $cutoff := now.AddDate -1 0 0 }}
+  {{ $recent := where (where $pages "Params.hidden" "ne" true) "Date" "ge" $cutoff }}
+  {{ $paginator := .Paginate $recent }}
+  {{ if not $recent }}
+  <article class="card empty">
+    <h2>Nothing new lately</h2>
+    <p class="excerpt">There are no posts from the past year. Older writing lives in the <a href="{{ "/archive/" | relURL }}">Archive</a>.</p>
+  </article>
+  {{ end }}
+  {{ range $paginator.Pages }}
+  <article class="card">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span>{{ end }}</time>
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <p class="excerpt">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 130 }}{{ end }}</p>
+    {{ with .Params.tags }}<p class="chips">{{ range . }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>{{ end }}</p>{{ end }}
+  </article>
+  {{ end }}
+  {{ template "partials/paginator.html" . }}
+</main>
+{{ end }}

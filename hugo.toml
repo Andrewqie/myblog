@@ -13,8 +13,8 @@ copyright = '© Andrewqie'
     mode = "auto"
 
 [[menu.main]]
-    name = "All posts"
-    url = "/posts"
+    name = "Archive"
+    url = "/archive"
     weight = 1
 
 [[menu.main]]

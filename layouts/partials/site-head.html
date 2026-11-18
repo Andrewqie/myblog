@@ -1,0 +1,31 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- if .IsHome -}}
+<title>{{ .Site.Title }}</title>
+{{- else -}}
+<title>{{ .Title }} · {{ .Site.Title }}</title>
+{{- end }}
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary | plainify | truncate 160 }}{{ else }}{{ .Site.Params.subtitle }}{{ end }}{{ end }}" />
+{{ with .OutputFormats.Get "rss" -}}
+{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
+{{- template "_internal/opengraph.html" . -}}
+
+<!-- Pick the colour skin before first paint: saved choice, else follow the system -->
+<script>
+(function () {
+  var skin = 'paper';
+  try {
+    var saved = localStorage.getItem('skin');
+    if (saved) skin = saved;
+    else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) skin = 'dusk';
+  } catch (e) {}
+  document.documentElement.setAttribute('data-skin', skin);
+})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..800;1,6..12,300..800&display=swap" rel="stylesheet">
+{{ $css := resources.Get "css/redesign.css" | resources.ExecuteAsTemplate "css/redesign.css" . | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" />

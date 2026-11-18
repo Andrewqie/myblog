@@ -1,0 +1,173 @@
+/* ---------- Fonts ----------
+   English/Latin: Nunito Sans (Google Fonts, linked in <head>).
+   Chinese: 犬仓书楷 (subset, self-hosted). The browser picks per character:
+   Nunito Sans has no Chinese glyphs, so Chinese text and full-width
+   punctuation fall through to the second font automatically. */
+@font-face {
+  font-family: "KenCang";
+  src: url("{{ "fonts/KenCangShuKai.woff2" | relURL }}") format("woff2");
+  font-display: swap;
+}
+:root {
+  /* Order matters: KenCang must come before any generic family, or the
+     system's own Chinese font would win for Chinese characters. */
+  --font: "Nunito Sans", "KenCang", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sidebar-w: 17rem;
+}
+
+/* ---------- Colour skins (soft, low contrast) ---------- */
+:root, :root[data-skin="paper"] {
+  --bg: #f6f1e8;  --side: #eee6d8;  --card: #faf6ef;
+  --text: #4b433b;  --muted: #8c8173;  --accent: #b27655;
+  --line: #e2d8c7;  --chip: #ebe2d2;  --quote: #efe7d9;
+}
+:root[data-skin="sage"] {
+  --bg: #f1f1e9;  --side: #e7eadf;  --card: #f6f6ef;
+  --text: #40463c;  --muted: #7f8777;  --accent: #6f8b68;
+  --line: #dcdfd0;  --chip: #e3e7d9;  --quote: #e9ecdf;
+}
+:root[data-skin="blush"] {
+  --bg: #f8f1ed;  --side: #f0e5df;  --card: #fbf6f3;
+  --text: #51433f;  --muted: #917f79;  --accent: #b27069;
+  --line: #e8d9d2;  --chip: #efe2dc;  --quote: #f2e7e1;
+}
+:root[data-skin="dusk"] {
+  --bg: #2b2723;  --side: #242020;  --card: #302b27;
+  --text: #d6ccbf;  --muted: #9a8e80;  --accent: #d39b78;
+  --line: #3b352f;  --chip: #38322c;  --quote: #332e29;
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: 17px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: var(--font); line-height: 1.95;
+  transition: background .25s, color .25s;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+::selection { background: color-mix(in srgb, var(--accent) 28%, transparent); }
+
+.shell { display: flex; min-height: 100vh; }
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  position: fixed; inset: 0 auto 0 0; width: var(--sidebar-w);
+  background: var(--side); border-right: 1px solid var(--line);
+  padding: 2.6rem 1.8rem 1.6rem; display: flex; flex-direction: column;
+  overflow-y: auto; z-index: 20;
+}
+.site-name {
+  display: block; color: var(--text); font-size: 1.55rem; line-height: 1.35;
+  font-weight: 700; letter-spacing: .01em;
+}
+.site-name:hover { text-decoration: none; color: var(--accent); }
+.tagline { margin: .7rem 0 0; color: var(--muted); font-size: .86rem; line-height: 1.7; }
+.menu { margin-top: 2.4rem; display: flex; flex-direction: column; gap: .15rem; }
+.menu a {
+  color: var(--text); padding: .45rem .85rem; margin-left: -.85rem; border-radius: .6rem;
+  font-size: 1rem; transition: background .15s, color .15s;
+}
+.menu a:hover { background: var(--chip); text-decoration: none; }
+.menu a[aria-current="page"] { background: var(--chip); color: var(--accent); font-weight: 700; }
+.side-foot { margin-top: auto; padding-top: 2rem; color: var(--muted); font-size: .78rem; }
+
+.skin-picker { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: .4rem; align-items: center;
+  font-size: .74rem; color: var(--muted); }
+.skin-picker span { width: 100%; }
+.skin-picker button {
+  font: inherit; color: var(--text); background: var(--chip); border: 1px solid var(--line);
+  border-radius: 999px; padding: .15rem .7rem; cursor: pointer;
+}
+.skin-picker button:hover { border-color: var(--accent); }
+
+/* ---------- Page ---------- */
+.page { margin-left: var(--sidebar-w); flex: 1; padding: 3.6rem 2rem 5rem; min-width: 0; }
+main { max-width: 41rem; margin: 0 auto; }
+
+.page-title { font-size: 1.7rem; margin: 0 0 1.6rem; font-weight: 700; }
+
+/* Home: post cards */
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 1rem;
+  padding: 1.4rem 1.7rem 1.3rem; margin-bottom: 1.15rem;
+  transition: border-color .2s, transform .2s;
+}
+.card:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); transform: translateY(-1px); }
+.card time, .post-head .meta, .posts time { color: var(--muted); font-size: .8rem; letter-spacing: .02em; }
+.card h2 { margin: .15rem 0 .35rem; font-size: 1.3rem; line-height: 1.5; font-weight: 700; }
+.card h2 a { color: var(--text); }
+.card h2 a:hover { color: var(--accent); text-decoration: none; }
+.excerpt { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.85; }
+
+.chips { margin: .8rem 0 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.chips a {
+  background: var(--chip); color: var(--muted); font-size: .76rem; line-height: 1.6;
+  padding: .05rem .7rem; border-radius: 999px;
+}
+.chips a:hover { color: var(--accent); text-decoration: none; }
+.chips.big a { font-size: .95rem; padding: .2rem .95rem; }
+.chips small { opacity: .7; }
+
+/* Archive list */
+.posts { list-style: none; margin: 0; padding: 0; }
+.posts li { display: flex; gap: 1.2rem; align-items: baseline; padding: .6rem 0; border-bottom: 1px dashed var(--line); }
+.posts time { flex: 0 0 6.6rem; }
+.posts a { color: var(--text); }
+.posts a:hover { color: var(--accent); }
+
+/* Pagination */
+.pagination { list-style: none; display: flex; justify-content: space-between; padding: 0; margin: 2rem 0 0; }
+.pagination a { background: var(--chip); border-radius: 999px; padding: .3rem 1.1rem; font-size: .9rem; }
+
+/* ---------- Article ---------- */
+.post-head h1 { font-size: 2rem; line-height: 1.45; margin: 0 0 .4rem; font-weight: 700; }
+.post-head { margin-bottom: 2rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--line); }
+.body { font-size: 1.06rem; }
+.body p { margin: 0 0 1.4rem; }
+.body h1 { font-size: 2rem; line-height: 1.45; margin: 0 0 1.4rem; font-weight: 700; }
+.body h2, .body h3 { line-height: 1.5; margin: 2.4rem 0 .8rem; font-weight: 700; }
+.body h2 { font-size: 1.4rem; } .body h3 { font-size: 1.18rem; }
+.body img { max-width: 100%; border-radius: .7rem; }
+.body blockquote {
+  margin: 1.6rem 0; padding: .9rem 1.3rem; background: var(--quote);
+  border-left: 3px solid var(--accent); border-radius: 0 .7rem .7rem 0; color: var(--muted);
+}
+.body blockquote p:last-child { margin-bottom: 0; }
+.body hr { border: 0; border-top: 1px solid var(--line); margin: 2.4rem 0; }
+.body code { background: var(--chip); padding: .1rem .4rem; border-radius: .35rem; font-size: .9em; }
+.body pre { background: var(--chip); padding: 1rem 1.2rem; border-radius: .7rem; overflow-x: auto; }
+.body pre code { background: none; padding: 0; }
+.tldr { background: var(--quote); border-radius: .7rem; padding: .8rem 1.2rem; margin-bottom: 1.6rem; color: var(--muted); }
+.draft-label { color: var(--accent); font-size: .7rem; border: 1px solid var(--accent); border-radius: 4px; padding: 0 .3rem; }
+.post-full .chips { margin: 2.4rem 0 1rem; }
+
+/* ---------- Mobile: sidebar becomes a slide-over menu ---------- */
+.nav-toggle { display: none; }
+.nav-button { display: none; }
+@media (max-width: 880px) {
+  .page { margin-left: 0; padding: 4.6rem 1.15rem 4rem; }
+  .sidebar { transform: translateX(-100%); transition: transform .25s; box-shadow: none; }
+  .nav-toggle:checked ~ .sidebar { transform: none; box-shadow: 0 0 40px rgba(0,0,0,.25); }
+  .nav-button {
+    display: grid; place-items: center; position: fixed; top: .8rem; left: .9rem; z-index: 30;
+    width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--side);
+    border: 1px solid var(--line); cursor: pointer;
+  }
+  .nav-button span, .nav-button span::before, .nav-button span::after {
+    content: ""; display: block; width: 1.05rem; height: 2px; background: var(--text); border-radius: 2px; position: relative;
+  }
+  .nav-button span::before { position: absolute; top: -6px; }
+  .nav-button span::after { position: absolute; top: 6px; }
+  .post-head h1 { font-size: 1.65rem; }
+}
+
+/* ---------- Archive ---------- */
+.archive-note { color: var(--muted); font-size: .92rem; margin: -.8rem 0 2rem; }
+.year { margin-bottom: 2.2rem; }
+.year h2 { font-size: 1.25rem; margin: 0 0 .5rem; font-weight: 700; display: flex; align-items: baseline; gap: .6rem; }
+.year h2 small { color: var(--muted); font-size: .78rem; font-weight: 400; background: var(--chip); border-radius: 999px; padding: 0 .6rem; }
+.card.empty { text-align: center; padding: 2.2rem 1.7rem; }
+.card.empty:hover { transform: none; }

@@ -1,0 +1,24 @@
+{{ define "main" }}
+<main class="list archive">
+  <h1 class="page-title">Archive</h1>
+  <p class="archive-note">Posts older than a year are filed here automatically, newest first.</p>
+  {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+  {{ $cutoff := now.AddDate -1 0 0 }}
+  {{ $old := where (where $pages "Params.hidden" "ne" true) "Date" "lt" $cutoff }}
+  {{ range $old.GroupByDate "2006" }}
+  <section class="year">
+    <h2>{{ .Key }} <small>{{ len .Pages }}</small></h2>
+    <ul class="posts">
+      {{ range .Pages }}
+      <li>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ dateFormat "Jan 2" .Date }}</time>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if .Draft }} <span class="draft-label">DRAFT</span>{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ else }}
+  <p class="archive-note">Nothing here yet.</p>
+  {{ end }}
+</main>
+{{ end }}
