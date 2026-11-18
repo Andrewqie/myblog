@@ -10,7 +10,7 @@
     {{ with .Params.tldr }}<div class="tldr"><strong>tl;dr:</strong> {{ . }}</div>{{ end }}
     <section class="body">{{ .Content }}</section>
     {{ if and (ne .Type "page") .Params.tags }}
-    <p class="chips">{{ range .Params.tags }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>{{ end }}</p>
+    <p class="chips">{{ range .Params.tags }}<a href="{{ printf "tags/%s/" (. | urlize) | relURL }}">{{ . }}</a>{{ end }}</p>
     {{ end }}
     {{ if ne .Type "page" }}
     <script src="https://giscus.app/client.js"
